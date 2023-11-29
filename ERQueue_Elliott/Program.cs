@@ -28,7 +28,8 @@ namespace ERQueue_Elliott
             // CSV init data into queue block below. Self wrote but with reference and help from stack overflow
             // note this assumes the CSV file is travelling with the project as I submitted it, in the same directory as the csharp files
             string filename = "Patients-1.csv";
-            string filepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filename);
+            string parent=Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string filepath = Path.Combine(parent, filename);
             StreamReader sr= new StreamReader(filepath);
             sr.ReadLine();
             while (!sr.EndOfStream)
